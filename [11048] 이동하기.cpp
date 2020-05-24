@@ -2,7 +2,6 @@
 // https://www.acmicpc.net/problem/11048
 
 #include <iostream>
-#include <cstdio>
 using namespace std;
 int max(int a, int b, int c);
 
@@ -17,6 +16,7 @@ int main(void)
             candy[i][j] = tmp;
         }
     }
+    
     dp[0][0] = 0, dp[0][1] = 0, dp[1][0] = 0;
     for(int i = 1 ; i <= n ; i++) {
         for(int j = 1 ; j <= m ; j++) {
