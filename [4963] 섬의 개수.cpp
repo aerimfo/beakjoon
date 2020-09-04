@@ -1,4 +1,4 @@
-/*[4963] ì„¬ì˜ ê°œìˆ˜*/
+/*[4963] ¼¶ÀÇ °³¼ö*/
 /*https://www.acmicpc.net/problem/4963*/
 /*graph algorithm*/
 /*1 == land, 0 == sea*/
