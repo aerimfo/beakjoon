@@ -1,4 +1,4 @@
-# Beakjoon Online Judge Code
+# BOJ Probelm Solving Code
 백준 문제를 해결한 코드를 올리는 곳입니다.
 
 
