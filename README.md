@@ -8,7 +8,7 @@
 
 
 
-### 개인블로그
+### Personal blog
 
 
 • Tistory : https://aerimforest.tistory.com/
