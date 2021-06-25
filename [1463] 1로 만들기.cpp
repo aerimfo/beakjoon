@@ -8,16 +8,16 @@ using namespace std;
 
 int dp[MAX] = {0}; // 최소 연산 횟수
 
-void minCal(int n)
+void minCal(int x)
 {
-    dp[n] = dp[n-1] + 1;
+    dp[x] = dp[x-1] + 1;
 
-    if(n % 2 == 0) {
-        dp[n] = dp[n] > dp[n/2] + 1 ? dp[n/2] + 1 : dp[n];
+    if(x % 2 == 0) {
+        dp[x] = dp[x] > dp[x/2] + 1 ? dp[x/2] + 1 : dp[x];
     }
 
-    if(n % 3 == 0) {
-        dp[n] = dp[n] > dp[n/3] + 1 ? dp[n/3] + 1 : dp[n];
+    if(x % 3 == 0) {
+        dp[x] = dp[x] > dp[x/3] + 1 ? dp[x/3] + 1 : dp[x];
     }
 }
 
