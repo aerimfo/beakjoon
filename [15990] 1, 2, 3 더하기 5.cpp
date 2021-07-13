@@ -1,12 +1,12 @@
 // [15990] 1, 2, 3 더하기 5
 // https://www.acmicpc.net/problem/15990
 // dp
-// dp의 자료형 주의
+// 배열 자료형 주의
 
 #include <iostream>
 using namespace std;
 
-long long dp[100001][4];
+unsigned int dp[100001][4];
 
 // n을 1, 2, 3의 합으로 나타내는 방법의 수
 void go(int n)
