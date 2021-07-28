@@ -1,6 +1,6 @@
 // [1309] 동물원
 // https://www.acmicpc.net/problem/1309
-// dp
+// dp[i] = 2(가로) * i(세로) 크기의 동물원에 사자를 배치하는 방법의 수
 
 #include <cstdio>
 
