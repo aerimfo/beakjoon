@@ -1,5 +1,5 @@
-// [15664] N과 M (10)
-// https://www.acmicpc.net/problem/15664
+// [15665] N과 M (11)
+// https://www.acmicpc.net/problem/15665
 // 백트래킹
 
 #include <iostream>
@@ -28,12 +28,10 @@ void dfs(int cnt)
     }
 
     for(int i = 0 ; i < n ; i++) {
-        if(visited[i] == false && num[i] != pre && arr[cnt-1] <= num[i]) {
-            visited[i] = true; // 선택
+        if(num[i] != pre) {
             arr[cnt] = num[i]; // 선택한 숫자 저장
             pre = num[i];
             dfs(cnt + 1);
-            visited[i] = false;
         }
     }
 }
