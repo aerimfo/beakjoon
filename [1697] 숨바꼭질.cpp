@@ -1,6 +1,6 @@
-/*[1697] ¼û¹Ù²ÀÁú*/
-/*https://www.acmicpc.net/problem/1697*/
-/*BFS*/
+// [1697] ìˆ¨ë°”ê¼­ì§ˆ
+// https://www.acmicpc.net/problem/1697
+// bfs
 
 #include <iostream>
 #include <queue>
