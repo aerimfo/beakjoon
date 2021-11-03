@@ -10,7 +10,7 @@ using namespace std;
 int n;
 vector <int> note1, note2;
 
-void binearySearch(int num)
+void binarySearch(int num)
 {
     int left = 0, right = n - 1, mid;
 
@@ -30,7 +30,7 @@ void output(int m)
 {
     sort(note1.begin(), note1.end());
     for(int i = 0; i < m; i++) {
-        binearySearch(note2[i]);
+        binarySearch(note2[i]);
     }
 }
 
