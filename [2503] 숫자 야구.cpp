@@ -1,6 +1,6 @@
 // [2503] 숫자 야구
 // https://www.acmicpc.net/problem/2503
-// 브루트포스
+// 브루트포스 
 
 #include <iostream>
 #include <string>
