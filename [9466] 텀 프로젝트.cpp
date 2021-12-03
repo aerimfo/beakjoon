@@ -1,4 +1,4 @@
-// [9466] ÅÒ ÇÁ·ÎÁ§Æ®
+// [9466] í…€ í”„ë¡œì íŠ¸
 // https://www.acmicpc.net/problem/9466
 // bfs, dfs
 
@@ -11,7 +11,7 @@ using namespace std;
 queue<int> q;
 int check[MAX];
 int cycle[MAX], a[MAX];
-int cnt = 0; // ÇÁ·ÎÁ§Æ® ÆÀ¿¡ ¼ÓÇÏ´Â ÇĞ»ıµéÀÇ ¼ö
+int cnt = 0; // í”„ë¡œì íŠ¸ íŒ€ì— ì†í•˜ëŠ” í•™ìƒë“¤ì˜ ìˆ˜
 void dfs(int s);
 
 int main(void)
@@ -19,16 +19,20 @@ int main(void)
 	int t, n, student;
 	int answer[MAX];
 	cin >> t;
+	
 	for (int i = 0; i < t;i++) {
 		cin >> n;
+		
 		for (int j = 1; j <= n; j++) {
 			cin >> a[j];
 		}
+		
 		for (int k = 1; k <= n; k++) {
 			if (check[k] == false) {
 				dfs(k);
 			}
 		}
+		
 		answer[i] = n - cnt;
 	
 		// initialization
