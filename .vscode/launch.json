@@ -1,7 +1,13 @@
 {
     "version": "0.2.0",
     "configurations": [
-
+        {
+            "type": "java",
+            "name": "Launch SortingProgram",
+            "request": "launch",
+            "mainClass": "SortingProgram",
+            "projectName": "Beakjoon_f140002d"
+        },
         {
             "type": "lldb",
             "request": "launch",
