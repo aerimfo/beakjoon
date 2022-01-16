@@ -111,6 +111,9 @@ void inputPuzzles()
 
 int main(void)
 {
+    cin.tie(NULL); 
+    ios_base::sync_with_stdio(false);
+    
     inputWords();
     inputPuzzles();
 }
