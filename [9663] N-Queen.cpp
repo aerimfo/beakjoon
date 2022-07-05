@@ -1,18 +1,16 @@
 // [9663] N-Queen
-// https://www.acmicpc.net/problem/9663
 // 브루트포스, 백트래킹
-
 #include <iostream>
 using namespace std;
 
 int n, ans = 0;
 int chess[15]; // 체스가 i번째 행의 chess[i]열에 위치
 
-bool check(int row, int q)
+bool check(int row, int column)
 {
     for(int i = 0 ; i < row ; i++) {
         // 같은 열에 위치 or 대각선에 위치(|x 좌표 차이| == |y 좌표 차이|)
-        if(chess[i] == q || abs(i - row) == abs(chess[i] - q)) {
+        if(chess[i] == column || abs(i - row) == abs(chess[i] - column)) {
             return false; // 현재 칸에 퀸 배치 불가
         }
     }
@@ -22,7 +20,7 @@ bool check(int row, int q)
 void go(int row)
 {
     if(row == n) { // 퀸 N개 다 놓음
-        ans++; // N개의 퀸 놓을 수 있는 경우의 수 1 증가
+        ans++; 
     }
     else { // 놓아야 할 퀸의 개수가 남은 경우
         for(int i = 0 ; i < n ; i++) {
@@ -36,7 +34,10 @@ void go(int row)
 
 int main(void)
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
     cin >> n;
-    go(0); // 0번째 행부터 탐색 시작
+    go(0); 
     cout << ans << '\n';
 }
