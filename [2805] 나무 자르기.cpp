@@ -1,57 +1,53 @@
-// [2805] ³ª¹« ÀÚ¸£±â
-// https://www.acmicpc.net/problem/2805
-// ÀÌºĞ Å½»ö
-
-#include <cstdio>
-#include <vector>
-#include <algorithm>
+// [2805] ë‚˜ë¬´ ìë¥´ê¸°
+// ì´ë¶„ íƒìƒ‰
+#include <iostream>
 using namespace std;
 
-long long check(vector<long long> &tree, int n, long long m);
-long long cut(vector<long long> &tree, int n, long long height);
+int n;
+long long maxHeight, m, tree[1000001];
+
+void input()
+{
+    cin >> n >> m;
+    for(int i = 0; i < n; i++) {
+        cin >> tree[i];
+        if(tree[i] > maxHeight) maxHeight = tree[i];
+    }
+}
+
+long long cutTree(int height)
+{
+    long long cut = 0;
+    for(int i = 0; i < n; i++) {
+        if(tree[i] >= height) {
+            cut += (tree[i] - height);
+        }
+    }
+    return cut;
+}
+
+void solution()
+{
+    long long ans, left = 0 , mid, right = maxHeight;
+    while(left <= right) {
+        mid = (left + right) / 2;
+        if(cutTree(mid) >= m) {
+            ans = mid;
+            left = mid + 1;
+        }
+        else {
+            right = mid - 1;
+        }
+    }
+    cout << ans << '\n';
+}
 
 int main(void)
 {
-	int n; // ³ª¹«ÀÇ ¼ö
-	long long m; // »ó±ÙÀÌ°¡ ÁıÀ¸·Î °¡Á®°¡·Á°í ÇÏ´Â ³ª¹«ÀÇ ±æÀÌ
-	scanf("%d %lld", &n, &m);
-	vector<long long> tree(n);
-	for (int i = 0; i < n; i++) {
-		scanf("%lld", &tree[i]);
-	}
-	sort(tree.begin(), tree.end());
-	printf("%d\n", check(tree, n, m));
-}
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL); cout.tie(NULL);
 
-long long check(vector<long long> &tree, int n, long long m)
-{
-	long long left = 0;
-	long long right = tree[n - 1];
-	long long answer = 0;
-	while (left <= right) {
-		long long mid = (left + right) / 2;
-		if (cut(tree, n, mid) >= m) {
-			left = mid + 1;
-			answer = mid;
-		}
-		else {
-			right = mid - 1;
-		}
-	}
-	return answer;
-}
-
-long long cut(vector<long long> &tree, int n, long long height)
-{
-	long long length = 0;
-	for (int i = 0; i < n; i++) {
-		// ÀÚ¸£°íÀÚ ÇÏ´Â ³ôÀÌº¸´Ù ³ª¹«°¡ ±ä °æ¿ì -> ÀÚ¸¦ ¼ö ÀÖÀ½
-		if (tree[i] > height)
-			length += tree[i] - height;
-
-		// ³ª¹«°¡ Âª¾Æ¼­ ÀÚ¸¦ ¼ö ¾ø´Â °æ¿ì
-		else
-			;
-	}
-	return length;
+    input();
+    solution();
+    return 0;
 }
