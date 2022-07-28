@@ -36,9 +36,9 @@ long long getSum(int a, int b)
     a = a + tmpN - 1;
     b = b + tmpN - 1;
     while(a <= b) {
-        // a가 right child라면(짝수라면)
+        // a가 right child라면(홀수라면)
         if((a & 1) == 1) sum += tree[a];
-        // b가 left child라면(홀수라면)
+        // b가 left child라면(짝수라면)
         if((b & 1) == 0) sum += tree[b];
         a = (a + 1) >> 1; // 오른쪽 친구의 부모로 올라감
         b = (b - 1) >> 1; // 자기 부모로 올라감
