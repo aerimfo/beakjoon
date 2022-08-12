@@ -1,54 +1,58 @@
 // [7795] 먹을 것인가 먹힐 것인가
-// 정렬, 투 포인터
-#include <cstdio>
-#include <vector>
+#include <iostream>
+#include <queue>
 #include <algorithm>
 using namespace std;
 
-vector<int> A, B;
+int n, m;
+priority_queue<int> a, b;
 
-int solution(int n, int m)
+void init()
 {
-    int a = n, b = m, ans = 0;
-    sort(A.begin(), A.end());
-    sort(B.begin(), B.end());
-    while(true) {
-        if(a < 1 || b < 1) {
-            break;
-        }
-        if(A[a] > B[b]) {
-            ans += b;
-            a--;
-        }
-        else {
-            b--;
-        }
-    }
-
-    return ans;
+    while(!a.empty()) a.pop();
+    while(!b.empty()) b.pop();
 }
 
-void initialization()
+void input()
 {
-    A.clear(); B.clear();
-    A.push_back(0); B.push_back(0);
+    int size;
+    cin >> n >> m;
+    for(int i = 0; i < n ; i++) {
+        cin >> size;
+        a.push(size);
+    }
+    for(int i = 0; i < m ; i++) {
+        cin >> size;
+        b.push(size);
+    }
+}
+
+int solution()
+{
+    int ans = 0;
+    while(!a.empty() && !b.empty()) {
+        if(a.top() > b.top()) {
+            ans += b.size();
+            a.pop();
+        }
+        else {
+            b.pop();
+        }
+    }
+    return ans;
 }
 
 int main(void)
 {
-    int t, n, m, num;
-    scanf("%d", &t);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t;
+    cin >> t;
     while(t--) {
-        scanf("%d %d", &n, &m);
-        initialization();
-        for(int i = 0; i < n; i++) {
-            scanf("%d", &num);
-            A.push_back(num);
-        }
-        for(int i = 0; i < m; i++) {
-            scanf("%d", &num);
-            B.push_back(num);
-        }
-        printf("%d\n", solution(n, m));
+        init();
+        input();
+        cout << solution() << '\n';
     }
+    return 0;
 }
